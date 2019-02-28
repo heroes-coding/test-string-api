@@ -12,12 +12,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using AutoMapper;
-using Employees.API.Mappers;
-using Employees.API.Helpers;
+using API.Helpers;
 using Microsoft.AspNetCore.Http;
 
-namespace Employees.API
+namespace API
 {
   public class Startup
   {
@@ -31,12 +29,6 @@ namespace Employees.API
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
-
-      var mappingConfig = new MapperConfiguration(mc =>
-        mc.AddProfile(new MappingProfile())
-      );
-      IMapper mapper = mappingConfig.CreateMapper();
-      services.AddSingleton(mapper);
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
       services.AddCors();
     }

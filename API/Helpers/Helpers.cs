@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using System;
 
-namespace Employees.API.Helpers
+namespace API.Helpers
 {
   public static class Extensions
   {
