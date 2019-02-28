@@ -35,6 +35,12 @@ namespace API.Helpers
         }
       }
     }
+
+    /// <summary>
+    /// Adds children recursively to the StringAndChildren object passed in, then sorts them
+    /// </summary>
+    /// <param name="substring"></param>
+    /// <param name="stringAndChildren"></param>
     private static void addChildren(string substring, StringAndChildren stringAndChildren)
     {
       StringBuilder childName = new StringBuilder();
@@ -148,6 +154,24 @@ namespace API.Helpers
         }
       }
     }
+
+    /// <summary>
+    /// Parses an input string based on paranthesis and commas into a list with dashes to represent the original depth of each element. Commas delineate sibling elements whereas opening and closing paranthesis delineate children of elements, with the root (without a name) element containing them all.
+    /// For example, the input string "(id,created,employee(id,firstname,employeeType(id), lastname),location)" should produce the following output string:
+    /// <code>
+    /// created
+    /// employee
+    /// - employeeType
+    /// -- id
+    /// - firstname
+    /// - id
+    /// - lastname
+    /// id
+    /// location
+    /// </code
+    /// </summary>
+    /// <param name="inputString"></param>
+    /// <returns></returns>
     public static string ParseString(string inputString)
     {
 
